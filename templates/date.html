@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>股市行情分析</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            form {
+                margin: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="start_date" class="col-sm-3 control-label">开始日期</label>
+                <div class="col-sm-4">
+                    <input id="start_date" type="date" value="2010-01-01" class="form-control date-picker">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="end_date" class="col-sm-3 control-label">结束日期</label>
+                <div class="col-sm-4">
+                    <input id="end_date" type="date" value="" class="form-control date-picker">
+                </div>
+            </div>
+        </form>
+        <script>
+             end_date.valueAsDate = new Date();
+        </script>
+    </body>
+</html>
