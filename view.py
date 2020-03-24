@@ -1,14 +1,9 @@
-from flask import render_template, Flask, request, send_file,send_from_directory,make_response
+from flask import render_template, Flask, request,send_from_directory,make_response
 from common.getdatadb import query_index_quot, query_stock_quot
-from common.getdatadb import kline_profession
 from common.generate_docx import output_docx
 import json
 import os
-from pyecharts.render import make_snapshot
-from snapshot_selenium import snapshot
-import xlsxwriter
-from io import BytesIO
-from urllib.parse import quote
+
 
 app = Flask(__name__)
 
@@ -49,8 +44,6 @@ def plot_kline():
 def download_file(filename):
     UPLOAD_FOLDER = '\\result_data'
     directory = os.getcwd()+UPLOAD_FOLDER
-    print(os.getcwd())
-    print(directory)
     try:
         response = make_response(
             send_from_directory(directory, filename, as_attachment=True))

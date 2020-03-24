@@ -123,7 +123,7 @@ def output_docx(df_period, source_path):
     paragraph = cell.paragraphs[0]
     # 插入图片
     run = paragraph.add_run()
-    run.add_picture('./result_data/stock.png', width=Inches(6.0))
+    run.add_picture(file_path+'stock.png', width=Inches(6.0))
 
     # 新建表格2
     logger.info("正在生成表格...")
@@ -185,5 +185,5 @@ if __name__ == "__main__":
         conn.close()
     except Exception as e:
         print(e)
-    output_docx(df, '../')
+    output_docx(df, '..\\')
 
