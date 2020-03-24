@@ -12,40 +12,63 @@
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <!--引入Bootstrap core js-->
     <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-
+    <style>
+        a {color: #696B83;TEXT-DECORATION: none}
+        a:active {background: #AFC1DC}
+        .DownButtonNormal{
+            height: 25px;
+            line-height: 18px;
+            padding: 0 11px;
+            background: rgb(120, 127, 162);
+            border: 1px #E5E7EA solid;
+            border-radius: 3px;
+            display: inline-block;
+            font-size: 20px;
+            outline: none;
+            margin-left: 280px
+         }
+    </style>
   </head>
 
   <body>
-<!--<form class="form-horizontal">-->
-           <!---->
-        <!--</form>-->
-        <!--<script>-->
-             <!--end_date.valueAsDate = new Date();-->
-        <!--</script>-->
     <div class="container-fluid">
-    <!--建立一个搜索的form-->
+        <!--建立一个搜索的form-->
       <form style="padding-top: 70px" method="post" >
         <div class="form-horizontal">
+            <label for="productType" class="col-sm-3 control-label">选择查询标的</label>
+            <div class="col-sm-4">
+            <select name="productType" id="productType" class="form-control" size="1" style="margin-left: 10px">
+                <option selected hidden disabled value="">请选择标的</option>
+                <option value="stock">股票</option>
+                <option value="index">指数</option>
+            </select>
+            </div>
             <label for="search" class="col-sm-3 control-label">股票/指数代码</label>
             <div class="col-sm-4">
-                <input name="search"  class="form-control" type="search" placeholder="输入代码.."  style="margin-left: 10px">
+                <input id="search" name="search" class="form-control" type="search" placeholder="输入代码.."  style="margin-left: 10px">
             </div>
             <!--<div class="form-group">-->
             <label for="start_date" class="col-sm-3 control-label">开始日期</label>
             <div class="col-sm-4">
-                <input id="start_date" type="date" value="2010-01-01" class="form-control date-picker" style="margin-left: 10px">
+                <input id="start_date" name="start_date" type="date" value="2010-01-01" class="form-control date-picker" style="margin-left: 10px">
             </div>
             <!--</div>-->
             <!--<div class="form-group">-->
             <label for="end_date" class="col-sm-3 control-label">结束日期</label>
             <div class="col-sm-4">
-                <input id="end_date" type="date" value="" class="form-control date-picker" style="margin-left: 10px">
+                <input id="end_date" name="end_date" type="date" value="" class="form-control date-picker" style="margin-left: 10px">
             </div>
             <!--</div>-->
             <div class="col-1">
                 <button class="btn btn-outline-success" type="submit" style="margin-left: 10px">搜索</button>
             </div>
+            <div class="col-1">
+                <a class="DownButtonNormal" name="DownLoadHistEvent" style="color:#ffffff" download="doc_test.docx" href="download\doc_test.docx">Download</a>
+            </div>
         </div>
+          <script>
+                end_date.valueAsDate = new Date();
+          </script>
       </form>
       <div class="row justify-content-center">
         <div class="col-8">
