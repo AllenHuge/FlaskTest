@@ -46,6 +46,7 @@ if __name__ == '__main__':
     conn = mysql_login(schema_name = 'ext_data_stock')
     cursor = conn.cursor()
     sql = '''
+    select * from ext_data_stock.index_quotation_info where trade_date = '20200324'
     '''
     cursor.execute(sql)
     conn.commit()

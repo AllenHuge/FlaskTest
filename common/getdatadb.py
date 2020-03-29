@@ -38,7 +38,8 @@ def query_index_quot(code, start_date, end_date):
                 ,cast(pct_chg as dec(20,2)) as pct_chg
         from    ext_data_stock.index_quotation_info
         where   index_code = 'sh.{0}'
-        AND     trade_date BETWEEN '{1}' AND '{2}';
+        AND     trade_date BETWEEN '{1}' AND '{2}'
+        order by trade_date;
     '''.format(code, start_date,end_date)
     try:
         conn = mysql_login()
@@ -81,7 +82,8 @@ def query_stock_quot(code, start_date, end_date):
                 ,cast(pct_chg as dec(20,2)) as pct_chg
         from    ext_data_stock.stock_quotation_info
         where   stock_code = 'sh.{0}'
-        AND     trade_date BETWEEN '{1}' AND '{2}';
+        AND     trade_date BETWEEN '{1}' AND '{2}'
+        order by trade_date;
     '''.format(code, start_date,end_date)
     try:
         conn = mysql_login()
